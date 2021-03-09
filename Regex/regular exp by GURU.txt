@@ -1,0 +1,101 @@
+import re
+
+s = "Welcome to    Regex   Programming    using    Python"
+print("The value of s is: ", s)
+lstValues = re.split(r"\s", s)
+print("Regex split using '\s'          : ", lstValues)
+
+lstValues = re.split(r"\s+", s)
+print("Regex split using '\s+'         : ", lstValues)
+
+lstValues = re.split(r"(\s+)", s)
+print("Regex split using '(\s+)'       : ", lstValues)
+
+# GREP ==> Global Regular Expression Print
+
+lstValues = re.split(r"s+", s)
+print("Regex split using 's+'          : ", lstValues)
+
+lstValues = re.split(r"(s+)", s)
+print("Regex split using '(s+)'        : ", lstValues)
+
+s = "Welcome to Regular Expression Programming Using Python"
+lstValues = re.split(r"[a-f]", s)
+print("Regex split using '[a-f]'       : ", lstValues)
+
+lstValues = re.split(r"([a-f])", s)
+print("Regex split using '([a-f])'     : ", lstValues)
+
+lstValues = re.split(r"[a-f][l-n]", s)
+print("Regex split using '[a-f][l-n]'  : ", lstValues)
+
+lstValues = re.split(r"([a-f][l-n])", s)
+print("Regex split using '([a-f][l-n])': ", lstValues)
+
+
+
+findall method
+import re
+
+address = "Hi 89 Main, 4th Cross, 123 Road, Marathalli, 5678 Bangalore, 560023"
+
+lstValues = re.findall(r"\d+", address)
+print("findall using '\d+'                : ", lstValues)
+
+lstValues = re.findall(r"\d{6}", address)
+print("findall using '\d{6}'              : ", lstValues)
+
+lstValues = re.findall(r"\d{2}", address)
+print("findall using '\d{2}'              : ", lstValues)
+
+lstValues = re.findall(r"\b\d{2}\b", address)
+print("findall using '\b\d{2}\b'          : ", lstValues)
+
+lstValues = re.findall(r"\d{1,6}", address)
+print("findall using '\d{1,6}'            : ", lstValues)
+
+import re
+
+s = '''
+<html>
+<head>
+<title>Current IP Address Allocations
+</title>
+</head>
+<body>
+IP Address are 172.45.78.109
+LoopBack Address: 127.0.0.1
+Computer 1: 10.67.89.101
+Computer 2: 10.67.98.102
+Computer 3: 12.68.98.102
+</body>
+</html>
+'''
+
+# IPAddress : 4 parts
+lstValues = re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", s)
+print("IP Address: ", lstValues)
+
+
+lstValues = re.findall(r"10\.\d{1,3}\.\d{1,3}\.\d{1,3}", s)
+print("IP Address: ", lstValues)
+
+import re
+
+empDetails = "Hi I have a credit card with number 3775 123456 78910 and " \
+             "other card is" \
+             " 3545 456789 12345"
+
+#http://www.getcreditcardnumbers.com
+
+# AMEX Credit
+# Always starts with 3
+# Second Digit is either 4 or 7
+# <4 Digit> <6\ Digit> <5 Digit>
+
+lstCards = re.findall(r"3[4|7]\d{2}\s\d{6}\s\d{5}", empDetails)
+print(lstCards)
+
+
+
+
